@@ -1,0 +1,9 @@
+@import "./root.css";
+
+@import "./components/header.css";
+
+@import "./utilities.css";
+
+main {
+    margin: 3rem 0;
+}

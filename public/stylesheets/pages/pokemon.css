@@ -1,0 +1,74 @@
+.pokemon {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 1rem 0;
+    transition: transform 0.15s linear;
+}
+
+.pokemon:hover {
+    transform: translateY(-6px);
+}
+
+.pokemon figure {
+    background-color: #f2f2f2;
+    margin: 0;
+    text-align: center;
+}
+
+.pokemon figure img {
+    height: auto;
+    width: 100%;
+}
+
+.pokemon-info > span {
+    color: #909090;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 0.85rem;
+    margin-bottom: 0.65rem;
+}
+
+.pokemon-info h4 {
+    margin-bottom: 0.3rem;
+}
+
+/**
+ *  On peut pas mettre de variables CSS dans les media queries puisque ce ne sont pas des éléments HTML et ils
+ *  n'héritent pas de ":root" ce qui fait que les variables ne sont pas disponibles.
+ *
+ *  En utilisant du SCSS, il serait possible d'avoir des variables pour les breakpoints, mais ce n'est pas possible en CSS.
+ */
+@media (max-width: 992px) {
+    .pokemon {
+        --width-per-item: 25%;
+    }
+}
+
+@media (max-width: 768px) {
+    .pokemon {
+        --width-per-item: 33.33333333%;
+    }
+}
+
+@media (max-width: 576px) {
+    html {
+        font-size: 180%;
+    }
+    .pokemon {
+        --width-per-item: 100%;
+
+        padding-inline: 0;
+    }
+
+    /*
+     *  TODO(devoir):Adapter les filtres en forme de dropdown pour la version mobile ;-)
+     *  Pour l'instant, on cache tous les filtre sauf le "All".
+     */
+    .pokemon-filter {
+        justify-content: center;
+    }
+    .pokemon-filter [data-pokemon-type]:not([data-pokemon-type="all"]){
+        display: none;
+    }
+}
