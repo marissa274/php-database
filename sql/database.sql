@@ -14,3 +14,11 @@ CREATE TABLE pokemon (
    speed INTEGER,
    special INTEGER
 );
+
+
+CREATE TABLE pokemon_type (
+   pokemon_id INTEGER NOT NULL,
+   type_id INTEGER NOT NULL,
+   FOREIGN KEY (pokemon_id) REFERENCES pokemon(id),
+   FOREIGN KEY (type_id) REFERENCES type(id)
+);
